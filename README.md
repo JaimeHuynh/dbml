@@ -1,4 +1,4 @@
-# DBML - Database Markup Language [![Build Status](https://travis-ci.org/khoahuynhf/dbml.svg?branch=master)](https://travis-ci.org/khoahuynhf/dbml)
+# DBML - Database Markup Language [![Build Status](https://travis-ci.org/khoahuynhf/dbml.svg?branch=master)](https://travis-ci.org/khoahuynhf/dbml) [![Coverage Status](https://coveralls.io/repos/github/khoahuynhf/dbml/badge.svg?branch=master)](https://coveralls.io/github/khoahuynhf/dbml?branch=master)
 
 DBML (database markup language) is a simple, readable DSL language designed to define database structures.
 
