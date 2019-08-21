@@ -2,10 +2,10 @@ git:
   depth: 5
 language: node_js
 node_js:
+  - node
   - "12"
   - "10"
   - "8"
-dist: trusty
 cache:
   yarn: true
   directories:
