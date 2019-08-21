@@ -16,7 +16,7 @@ install:
   - yarn install
   - lerna exec -- yarn install
 script:
-  - lerna run test
+  - yarn test
 branches:
   only:
     - master
