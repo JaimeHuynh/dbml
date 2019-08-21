@@ -18,7 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "build:lib": "babel src --out-dir lib --copy-files",
     "build:parser": "npx babel-node src/parse/buildParser.js",
     "build": "npm run build:parser && npm run build:lib",

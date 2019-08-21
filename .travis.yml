@@ -15,3 +15,8 @@ install:
   - lerna exec -- yarn install
 script:
   - lerna run test
+branches:
+  only:
+    - master
+notification:
+  email: false
