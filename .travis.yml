@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "12"
+  - "10"
+  - "8"
+dist: trusty
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - packages/dbml-core/node_modules
+    - packages/dbml-cli/node_modules
+install:
+  - yarn install
+  - lerna exec -- yarn install
+script:
+  - lerna run test
