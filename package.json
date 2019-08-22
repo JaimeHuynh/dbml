@@ -28,9 +28,6 @@
     "setupFiles": [
       "./packages/dbml-core/jestHelpers.js"
     ],
-    "projects": [
-      "/packages/*"
-    ],
     "transform": {
       "^.+\\.js$": "babel-jest",
       "\\.(?!json$)[^.]*$": "jest-raw-loader"
