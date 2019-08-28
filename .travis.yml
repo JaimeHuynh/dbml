@@ -14,8 +14,8 @@ cache:
     - packages/dbml-cli/node_modules
 install:
   - yarn install
-  - lerna exec -- yarn install
-  - lerna exec -- yarn build
+  - lerna bootstrap
+  - lerna run build
 script:
   - yarn test
 branches:
