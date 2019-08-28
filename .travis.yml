@@ -15,6 +15,7 @@ cache:
 install:
   - yarn install
   - lerna exec -- yarn install
+  - lerna exec -- yarn build
 script:
   - yarn test
 branches:

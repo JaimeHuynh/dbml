@@ -22,7 +22,7 @@
     "url": "https://github.com/holistics/dbml"
   },
   "scripts": {
-    "test": "lerna run build && jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "jest": {
     "setupFiles": [
