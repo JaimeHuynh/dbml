@@ -1,6 +1,6 @@
 -- SQL dump generated using DBML (dbml-lang.org)
 -- Database: MySQL
--- Generated at: 2019-08-28T03:51:32.950Z
+-- Generated at: 2019-08-28T03:56:05.717Z
 
 CREATE TABLE `orders` (
   `id` int PRIMARY KEY AUTO_INCREMENT,

@@ -1,6 +1,6 @@
 -- SQL dump generated using DBML (dbml-lang.org)
 -- Database: PostgreSQL
--- Generated at: 2019-08-28T03:51:34.210Z
+-- Generated at: 2019-08-28T03:56:06.521Z
 
 CREATE TYPE "orders_status" AS ENUM (
   'created',
