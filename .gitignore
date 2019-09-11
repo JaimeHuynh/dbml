@@ -4,8 +4,10 @@ node_modules/
 /dist/
 *.log
 *.cache
+*.package-lock.json
 /packages/*/node_modules
 /packages/*/lib
+**/out-files/**
 
 # Editor directories and files
 .idea

@@ -10,7 +10,7 @@ Enum "product status" {
   "In Stock"
 }
 
-Table "orders" {
+Table "orders" [headercolor: #fff] {
   "id" int [pk, increment]
   "user_id" int [unique, not null]
   "status" orders_status
@@ -48,6 +48,19 @@ Table "users" {
   "country_code" int
 }
 
+<<<<<<< HEAD
+=======
+TableGroup g1 {
+  users
+  merchants
+}
+
+TableGroup g2 {
+  countries
+  orders
+}
+
+>>>>>>> a9bf9408ce533c37ba8efd261ddd0839300b23bd
 Table "merchants" {
   "id" int [pk]
   "merchant_name" varchar
