@@ -5,6 +5,7 @@ class PostgresExporter extends Exporter {
   constructor (schema = {}) {
     super(schema);
     this.indexes = Exporter.getIndexesFromSchema(schema);
+    this.comments = Exporter.getCommentsFromSchema(schema);
   }
 
   exportEnums () {
@@ -57,14 +58,39 @@ class PostgresExporter extends Exporter {
     return lines;
   }
 
+  static getPrimaryCompositeKey (table) {
+    const primaryCompositeKey = table.indexes ? table.indexes.filter(index => index.pk) : [];
+    const lines = primaryCompositeKey.map((key) => {
+      let line = 'PRIMARY KEY';
+      const columnArr = [];
+      key.columns.forEach((column) => {
+        let columnStr = '';
+        if (column.type === 'expression') {
+          columnStr = `(${column.value})`;
+        } else {
+          columnStr = `"${column.value}"`;
+        }
+        columnArr.push(columnStr);
+      });
+
+      line += ` (${columnArr.join(', ')})`;
+
+      return line;
+    });
+
+    return lines;
+  }
+
   getTableContentArr () {
     const tableContentArr = this.schema.tables.map((table) => {
       const { name } = table;
       const fieldContents = PostgresExporter.getFieldLines(table);
+      const primaryCompositeKey = PostgresExporter.getPrimaryCompositeKey(table);
 
       return {
         name,
         fieldContents,
+        primaryCompositeKey,
       };
     });
 
@@ -75,9 +101,10 @@ class PostgresExporter extends Exporter {
     const tableContentArr = this.getTableContentArr();
 
     const tableStrs = tableContentArr.map((table) => {
+      const content = [...table.fieldContents, ...table.primaryCompositeKey];
       /* eslint-disable indent */
       const tableStr = `CREATE TABLE "${table.name}" (\n${
-        table.fieldContents.map(line => `  ${line}`).join(',\n')
+        content.map(line => `  ${line}`).join(',\n')
         }\n);\n`;
       /* eslint-enable indent */
       return tableStr;
@@ -145,6 +172,22 @@ class PostgresExporter extends Exporter {
     return indexArr.length ? indexArr.join('\n') : '';
   }
 
+  exportComments () {
+    const commentArr = this.comments.map((comment) => {
+      let line = 'COMMENT ON';
+
+      if (comment.type === 'column') {
+        line += ` COLUMN "${comment.table.name}"."${comment.field.name}" IS '${comment.field.note}'`;
+      }
+
+      line += ';\n';
+
+      return line;
+    });
+
+    return commentArr.length ? commentArr.join('\n') : '';
+  }
+
   export () {
     let res = '';
     let hasBlockAbove = false;
@@ -169,6 +212,12 @@ class PostgresExporter extends Exporter {
     if (!_.isEmpty(this.indexes)) {
       if (hasBlockAbove) res += '\n';
       res += this.exportIndexes();
+      hasBlockAbove = true;
+    }
+
+    if (!_.isEmpty(this.comments)) {
+      if (hasBlockAbove) res += '\n';
+      res += this.exportComments();
       hasBlockAbove = true;
     }
 

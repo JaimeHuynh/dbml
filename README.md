@@ -5,7 +5,7 @@
 
 DBML (database markup language) is a simple, readable DSL language designed to define database structures.
 
-For more information, please check out [DBML homepage](https://dbml-lang.org)
+For more information, please check out [DBML homepage](https://dbml.org)
 
 ## Benefits
 
@@ -37,3 +37,4 @@ Example of a database definition of a simple blogging site:
 ## Community Contributions
 
 * Emacs Mode for DBML (Contributed by ccod): https://github.com/ccod/dbd-mode
+* Vim Plugin for DBML (Contributed by jidn): https://github.com/jidn/vim-dbml

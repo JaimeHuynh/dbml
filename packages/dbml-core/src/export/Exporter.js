@@ -10,11 +10,31 @@ class Exporter {
 
     schema.tables.forEach((table) => {
       if (!_.isEmpty(table.indexes)) {
-        indexes.push(...table.indexes);
+        // primary composite key is not included here
+        const tableIndexes = table.indexes.filter((index) => !index.pk);
+        indexes.push(...tableIndexes);
       }
     });
 
     return indexes;
+  }
+
+  static getCommentsFromSchema (schema) {
+    const comments = [];
+
+    schema.tables.forEach((table) => {
+      table.fields.forEach((field) => {
+        if (field.note) {
+          comments.push({
+            type: 'column',
+            table,
+            field,
+          });
+        }
+      });
+    });
+
+    return comments;
   }
 
   static hasWhiteSpace (s) {

@@ -1,3 +1,23 @@
+## v1.2.0 (2019-10-24)
+
+#### :rocket: New Feature
+* `dbml-core`
+  * [#39](https://github.com/holistics/dbml/pull/39) Support import/export comment syntax for dbml, mysql and postgres ([@phuongduyphan](https://github.com/phuongduyphan))
+  * [#35](https://github.com/holistics/dbml/pull/35) Add composite primary key ([@duynvu](https://github.com/duynvu))
+
+#### Committers: 2
+- Phuong Duy Phan ([@phuongduyphan](https://github.com/phuongduyphan))
+- Vũ Duy ([@duynvu](https://github.com/duynvu))
+
+## v1.1.3 (2019-10-10)
+
+#### :rocket: New Feature
+* `dbml-cli`, `dbml-core`
+  * [#32](https://github.com/holistics/dbml/pull/32) Add SQL Server export ([@duynvu](https://github.com/duynvu))
+
+#### Committers: 1
+- Vũ Duy ([@duynvu](https://github.com/duynvu))
+
 ## v1.1.2 (2019-09-04)
 
 #### :bug: Bug Fix
