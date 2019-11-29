@@ -25,7 +25,7 @@
           "name": "status",
           "type": {
             "type_name": "orders_status_enum",
-            "args": "'created', 'running', 'done', 'failure'"
+            "args": "'created','running','done','failure'"
           }
         },
         {
@@ -106,7 +106,7 @@
           "name": "status",
           "type": {
             "type_name": "products_status_enum",
-            "args": "'Out of Stock', 'In Stock'"
+            "args": "'Out of Stock','In Stock'"
           }
         },
         {
