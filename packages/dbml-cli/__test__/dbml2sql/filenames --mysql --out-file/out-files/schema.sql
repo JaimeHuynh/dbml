@@ -1,6 +1,6 @@
 -- SQL dump generated using DBML (dbml-lang.org)
 -- Database: MySQL
--- Generated at: 2019-08-28T06:04:41.996Z
+-- Generated at: 2019-11-29T03:02:28.670Z
 
 CREATE TABLE `staff` (
   `id` int PRIMARY KEY,

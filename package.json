@@ -31,7 +31,7 @@
     "setupFiles": [
       "./packages/dbml-core/jestHelpers.js",
       "./packages/dbml-cli/jestHelpers.js"
-    ],    
+    ],
     "setupFilesAfterEnv": [
       "<rootDir>/test/testSetupFile.js"
     ],
